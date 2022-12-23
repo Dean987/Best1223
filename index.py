@@ -42,7 +42,7 @@ def webhook():
     action =  req.get("queryResult").get("action")
     #msg =  req.get("queryResult").get("queryText")
     #info = "動作：" + action + "； 查詢內容：" + msg
-    if (action == "tasteChoice"):
+    if(action == "tasteChoice"):
         taste   = req.get("queryResult").get("parameters").get("rate")
         info    ="您選擇的辣度是:"  +   taste
 
