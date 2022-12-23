@@ -53,7 +53,7 @@ def webhook():
         
             result += "您可以選擇的品名為："  + dict["name"] +"產品的介紹:"+ dict["say"]
         info +=result
-    return make_response(jsonify({"fulfillmentText": info}))
+        return make_response(jsonify({"fulfillmentText": info}))
 
 
 
