@@ -56,7 +56,7 @@ def webhook():
                 info += result
         
        
-    return make_response(jsonify({"fulfillmentText": info}))
+                return make_response(jsonify({"fulfillmentText": info}))
 
 
 
