@@ -47,16 +47,16 @@ def webhook():
             taste = "可能會辣，怕辣的人要小心"
         elif(taste=="不辣"):
             taste = "本產品是不含辣的"
-        info    ="您選擇的辣度是:"  +   taste
+    info    ="您選擇的辣度是:"  +   taste
 
-        collection_ref = db.collection("chicken1")
-        docs = collection_ref.get()
-        result = ""
-        for doc in docs:
+    collection_ref = db.collection("chicken1")
+    docs = collection_ref.get()
+    result = ""
+    for doc in docs:
             dict=doc.to_dict()
-        if taste in dict["taste"]:
+    if taste in dict["taste"]:
             result += "您可以選擇的品名為："  + dict["name"] +"產品的介紹:"+ dict["say"]
-        info +=result
+    info +=result
     return make_response(jsonify({"fulfillmentText": info}))
 
 
