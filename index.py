@@ -41,19 +41,22 @@ def webhook():
     action =  req.get("queryResult").get("action")
     #msg =  req.get("queryResult").get("queryText")
     #info = "動作：" + action + "； 查詢內容：" + msg
-    if(action   ==  "tasteChoice"):
+    if (action == "tasteChoice"):
         taste   = req.get("queryResult").get("parameters").get("taste")
-        info    ="您選擇的辣度是:"  +   taste
+        info="您選擇的辣度是:" + taste + "，相關資訊：\n"
 
         collection_ref = db.collection("chicken1")
         docs = collection_ref.get()
         result = ""
         for doc in docs:
             dict=doc.to_dict()
+            if taste in dict["taste"]:
+                result += "品名：" + dict["name"] + "\n"
+                result += "介紹：" + dict["say"] + "\n\n"
+        info += result
         
-            result += "您可以選擇的品名為："  + dict["name"] +"產品的介紹:"+ dict["say"]
-        info +=result
-        return make_response(jsonify({"fulfillmentText": info}))
+       
+    return make_response(jsonify({"fulfillmentText": info}))
 
 
 
