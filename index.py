@@ -42,14 +42,14 @@ def webhook():
     action =  req.get("queryResult").get("action")
     #msg =  req.get("queryResult").get("queryText")
     #info = "動作：" + action + "； 查詢內容：" + msg
-    if(action == "tasteChoice"):
+    if(action   ==  "tasteChoice"):
         taste   = req.get("queryResult").get("parameters").get("taste")
         if(taste=="辣"):
-            rate = "可能會辣，怕辣的人要小心"
+            taste = "可能會辣，怕辣的人要小心"
         elif(taste=="不辣"):
-            rate = "本產品是不含辣的"
+            taste = "本產品是不含辣的"
 
-        info    ="您選擇的辣度是:"  +   taste
+    info    ="您選擇的辣度是:"  +   taste
 
     collection_ref = db.collection("chicken1")
     docs = collection_ref.get()
