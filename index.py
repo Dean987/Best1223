@@ -45,12 +45,13 @@ def webhook():
     if(action == "tasteChoice"):
         taste   = req.get("queryResult").get("parameters").get("taste")
         info    ="您選擇的辣度是:"  +   taste
+
     collection_ref = db.collection("chicken1")
     docs = collection_ref.get()
     result = ""
     for doc in docs:
         dict=doc.to_dict()
-        result += "您選擇的品名："  + dict["name"] +"您今天選擇的介紹:"+ dict["say"]
+        result += "您選擇的品名："  + dict["name"] +"產品的介紹:"+ dict["say"]
         info +=result
 
 
