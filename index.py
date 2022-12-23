@@ -49,10 +49,10 @@ def webhook():
             taste = "本產品是不含辣的"
         info    ="您選擇的辣度是:"  +   taste
 
-    collection_ref = db.collection("chicken1")
-    docs = collection_ref.get()
-    result = ""
-    for doc in docs:
+        collection_ref = db.collection("chicken1")
+        docs = collection_ref.get()
+        result = ""
+        for doc in docs:
             dict=doc.to_dict()
             result += "您可以選擇的品名為："  + dict["name"] +"產品的介紹:"+ dict["say"]
             info +=result
