@@ -50,7 +50,6 @@ def webhook():
     docs = collection_ref.get()
     result = ""
     for doc in docs:
-      if taste in doc.to_dict()["taste"]:  
         dict=doc.to_dict()
         result += "您可以選擇的品名為："  + dict["name"] +"產品的介紹:"+ dict["say"]+ "</a>" + "<br>" 
         info +=result
