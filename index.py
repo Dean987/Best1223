@@ -52,11 +52,11 @@ def webhook():
             dict=doc.to_dict()
             result += "品名：" + dict["name"] + "\n"
             result += "介紹：" + dict["say"] + "\n\n"
-            if taste in dict["taste"]:
-                info += result
+        if taste in dict["taste"]:
+            info += result
         
        
-                return make_response(jsonify({"fulfillmentText": info}))
+        return make_response(jsonify({"fulfillmentText": info}))
 
 
 
