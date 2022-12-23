@@ -50,9 +50,9 @@ def webhook():
         result = ""
         for doc in docs:
             dict=doc.to_dict()
-            result += "品名：" + dict["name"] + "\n"
-            result += "介紹：" + dict["say"] + "\n\n"
-        if taste in dict["taste"]:
+            if (dict["taste"]  ==  "taste"):
+                result += "品名：" + dict["name"] + "\n"
+                result += "介紹：" + dict["say"] + "\n\n"
             info += result
         
        
