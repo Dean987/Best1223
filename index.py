@@ -54,6 +54,7 @@ def webhook():
         result = ""
         for doc in docs:
             dict=doc.to_dict()
+        if taste in dict["taste"]:
             result += "您可以選擇的品名為："  + dict["name"] +"產品的介紹:"+ dict["say"]
         info +=result
     return make_response(jsonify({"fulfillmentText": info}))
