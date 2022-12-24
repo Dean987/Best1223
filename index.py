@@ -60,8 +60,9 @@ def webhook():
         info += result
 
         #info = "動作：" + action + "； 查詢內容：" + msg
+    
     elif (action == "searchMeal"):
-        rate =  req.get("queryResult").get("parameters").get("name")
+        name =  req.get("queryResult").get("parameters").get("name")
         info = "您選擇的餐點是：" + name
 
     
