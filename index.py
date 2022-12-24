@@ -53,6 +53,10 @@ def webhook():
             if taste == dict["taste"]:
                 result += "品名：" + dict["name"] + "\n"
                 result += "介紹：" + dict["say"] +"\n\n"
+            else:
+                result += "品名：" + dict["name"] + "\n"
+                result += "介紹：" + dict["say"] +"\n\n"
+
         info += result
         return make_response(jsonify({"fulfillmentText": info}))
 
