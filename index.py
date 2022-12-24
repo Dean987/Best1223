@@ -66,17 +66,14 @@ def webhook():
 
         collection_ref = db.collection("chicken1")
         docs = collection_ref.get()
-        result = False
+        result = ""
         for doc in docs:
             dict=doc.to_dict()
             if name in dict["name"]:
-                result = True
                 result += "品名：" + dict["name"] + "\n"
                 result += "介紹：" + dict["say"] +"\n\n"
                 result += "辣度：" + dict["taste"] + "\n"
-                result += "網址：" + dict["hyperlink"] +"\n\n" 
-        if not result :
-                result+="抱歉，目前沒有符合此商品的資訊"           
+                result += "網址：" + dict["hyperlink"] +"\n\n"            
         info += result
        
         
