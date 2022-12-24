@@ -62,8 +62,21 @@ def webhook():
         #info = "動作：" + action + "； 查詢內容：" + msg
     
     elif (action == "searchMeal"):
-        name =  req.get("queryResult").get("parameters").get("name")
+        name = req.get("queryResult").get("parameters").get("name")
         info = "您選擇的餐點是：" + name
+
+        collection_ref = db.collection("chicken1")
+        docs = collection_ref.get()
+        result = ""
+        for doc in docs:
+            dict=doc.to_dict()
+            if name == dict["name"]:
+                result += "品名：" + dict["name"] + "\n"
+                result += "介紹：" + dict["say"] +"\n\n"
+                result += "辣度：" + dict["taste"] + "\n"
+                result += "網址：" + dict["hyperlink"] +"\n\n"
+        info += result
+
 
     
 
