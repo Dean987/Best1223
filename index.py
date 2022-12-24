@@ -54,6 +54,18 @@ def webhook():
                 result += "品名：" + dict["name"] + "\n"
                 result += "介紹：" + dict["say"] +"\n\n"
         info += result
+    elif (action == "全部"):
+        collection_ref = db.collection("chicken1")
+        docs = collection_ref.get()
+        result = ""
+        for doc in docs:
+            dict=doc.to_dict()
+            result += "品名：" + dict["name"] + "\n"
+            result += "介紹：" + dict["say"] +"\n\n"
+        info += result
+
+
+
         return make_response(jsonify({"fulfillmentText": info}))
 
 
