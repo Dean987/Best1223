@@ -58,6 +58,12 @@ def webhook():
                 result += "品名：" + dict["name"] + "\n"
                 result += "介紹：" + dict["say"] +"\n\n"
         info += result
+
+        #info = "動作：" + action + "； 查詢內容：" + msg
+    elif (action == "searchMeal"):
+        rate =  req.get("queryResult").get("parameters").get("name")
+        info = "您選擇的餐點是：" + name
+
     
 
 
