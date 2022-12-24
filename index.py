@@ -54,7 +54,8 @@ def webhook():
                 result += "品名：" + dict["name"] + "\n"
                 result += "介紹：" + dict["say"] +"\n\n"
         info += result
-    elif (action == "全部"): 
+    elif (action == "全部"):
+        taste   = req.get("queryResult").get("parameters").get("taste") 
         collection_ref = db.collection("chicken1")
         docs = collection_ref.get()
         result = ""
