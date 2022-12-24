@@ -61,7 +61,7 @@ def webhook():
 
         #info = "動作：" + action + "； 查詢內容：" + msg
     elif (action == "searchMeal"):
-        name = req.get("queryResult").get("parameters").get("name")
+        name = req.get("queryResult").get("parameters").get("searchMeal")
         info = "您選擇的餐點是：" + name  + "，相關資訊：" + "\n"
 
         collection_ref = db.collection("chicken1")
