@@ -66,18 +66,17 @@ def webhook():
         info = "您選擇的餐點是：" + name
 
         collection_ref = db.collection("chicken1")
-        docs = collection_ref.oder_by("name").get()
-        found = False
+        docs = collection_ref.get()
+        result = ""
         for doc in docs:
-            if name in doc.to_dict()["name"]:
-                found = True
-                result += "品名：" + dict.to_dict()["name"] + "\n"
-                result += "介紹：" + dict.to_dict()["say"] +"\n\n"
-                result += "辣度：" + dict.to_dict()["taste"] + "\n"
-                result += "網址：" + dict.to_dict()["hyperlink"] +"\n\n"
-        if not found:        
-            result +="抱歉查無符合的關鍵字相關資訊"
+            dict=doc.to_dict()
+            if name == dict["name"]:
+                result += "品名：" + dict["name"] + "\n"
+                result += "介紹：" + dict["say"] +"\n\n"
+                result += "辣度：" + dict["taste"] + "\n"
+                result += "網址：" + dict["hyperlink"] +"\n\n"            
         info += result
+       
         
 
 
