@@ -74,9 +74,9 @@ def webhook():
                 result += "介紹：" + dict["say"] +"\n\n"
                 result += "辣度：" + dict["taste"] + "\n"
                 result += "網址：" + dict["hyperlink"] +"\n\n" 
-            if result == "":
+            elif name == "":
                 result += "抱歉，查無相關條件的產品資訊" 
-            return result 
+        
         info += result
        
         
