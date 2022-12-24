@@ -50,13 +50,12 @@ def webhook():
         result = ""
         for doc in docs:
             dict=doc.to_dict()
-            if (dict["taste"]  ==  "taste"):
+            if taste in dict["taste"]:
                 result += "品名：" + dict["name"] + "\n"
                 result += "介紹：" + dict["say"] + "\n\n"
-            info += result
-        
-       
+        info += result
         return make_response(jsonify({"fulfillmentText": info}))
+
 
 
 
