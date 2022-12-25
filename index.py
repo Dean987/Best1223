@@ -52,11 +52,11 @@ def webhook():
             dict=doc.to_dict()
             if taste  == "全部" :
                 result += "品名：" + dict["name"] +"\n"
-                result += "介紹：" + dict["say"] +"\n"
+                result += "介紹：" + dict["say"].replace("\n", "").replace(" ", "")+"\n"
                 result += "網址：" + dict["hyperlink"] +"\n"
             elif taste == dict["taste"]:
                 result += "品名：" + dict["name"] + "\n"
-                result += "介紹：" + dict["say"] +"\n"
+                result += "介紹：" + dict["say"].replace("\n", "").replace(" ", "")+"\n"
         info += result
 
         #info = "動作：" + action + "； 查詢內容：" + msg
