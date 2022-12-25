@@ -56,7 +56,7 @@ def webhook():
                 result += "網址：" + dict["hyperlink"] +"\n"
             elif taste == dict["taste"]:
                 result += "品名：" + dict["name"] + "\n"
-                result += "介紹：" + dict["say"] +"\n\n"
+                result += "介紹：" + dict["say"] +"\n"
         info += result
 
         #info = "動作：" + action + "； 查詢內容：" + msg
